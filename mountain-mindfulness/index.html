@@ -70,6 +70,9 @@ nav {
   text-transform: uppercase;
 }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(212,184,118,0.4); }
+@media (max-width: 768px) {
+  .nav-cta { display: none !important; }
+}
 
 /* STICKY OFFER BAR */
 .sticky-offer {
@@ -181,66 +184,67 @@ nav {
   margin-bottom: 24px;
 }
 
-/* HERO PRICE CALLOUT */
-.hero-offer {
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(212,184,118,0.4);
-  border-radius: 16px;
-  padding: 20px 32px;
+/* HERO CTA BLOCK — single unified offer + button */
+.hero-cta-block {
   display: inline-block;
-  margin-bottom: 16px;
+  text-decoration: none;
+  background: rgba(30,58,47,0.85);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--amber);
+  border-radius: 20px;
+  padding: 24px 36px 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.hero-offer .was {
-  font-size: 18px;
-  color: rgba(255,255,255,0.5);
+.hero-cta-block:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
+.hcb-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #C0392B, #E74C3C);
+  color: #fff;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  padding: 5px 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.hcb-prices {
+  margin-bottom: 4px;
+}
+.hcb-was {
+  font-size: 20px;
+  color: rgba(255,255,255,0.4);
   text-decoration: line-through;
+  margin-right: 10px;
 }
-.hero-offer .now {
+.hcb-now {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 52px;
+  font-size: 54px;
   font-weight: 700;
   color: #fff;
   line-height: 1;
 }
-.hero-offer .badge {
-  display: inline-block;
+.hcb-per {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 16px;
+}
+.hcb-btn {
   background: var(--amber);
   color: var(--forest);
   font-weight: 800;
-  font-size: 12px;
-  letter-spacing: 1px;
-  padding: 4px 12px;
-  border-radius: 12px;
-  margin-left: 8px;
-  vertical-align: super;
-}
-.hero-offer .per {
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-  margin-top: 4px;
-}
-.hero-spots {
-  margin-top: 12px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  letter-spacing: 1px;
-}
-.btn-primary {
-  display: inline-block;
-  background: var(--amber);
-  color: var(--forest);
-  font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 18px 44px;
+  padding: 14px 32px;
   border-radius: 8px;
-  text-decoration: none;
-  margin-top: 16px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,184,118,0.35); }
+.hcb-spots {
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 1px;
+}
 
 /* SECTIONS */
 section { padding: 80px 20px; }
@@ -642,8 +646,8 @@ footer a { color: var(--amber); text-decoration: none; }
   .dom-grid img { height: 280px; }
   .includes-grid { grid-template-columns: 1fr; }
   .price-card { padding: 32px 20px; }
-  .hero-offer { padding: 16px 24px; }
-  .hero-offer .now { font-size: 42px; }
+  .hero-cta-block { padding: 20px 28px 16px; }
+  .hcb-now { font-size: 44px; }
   .sticky-offer { flex-direction: column; gap: 8px; padding: 10px 16px; }
   .sticky-offer .offer-text { font-size: 13px; }
   .offer-banner-inner { flex-direction: column; gap: 12px; }
@@ -676,13 +680,13 @@ footer a { color: var(--amber); text-decoration: none; }
     <h1>Mountain Mindfulness</h1>
     <h2>A Transformational Yoga &amp; Self-Discovery Retreat</h2>
     <div class="hero-loc">Sessions Retreat &amp; Hotel &nbsp;&middot;&nbsp; Big Bear Lake, California</div>
-    <div class="hero-offer">
-      <div class="was">$2,000</div>
-      <div class="now">$500 <span class="badge">75% OFF</span></div>
-      <div class="per">4 days &middot; 3 nights &middot; all-inclusive</div>
-    </div>
-    <a href="https://buy.stripe.com/test_5kQaEZ2Rxb9m1F170UcfK00" target="_blank" class="btn-primary">Secure Your Spot &mdash; $500</a>
-    <div class="hero-spots">Only 15 spots available</div>
+    <a href="https://buy.stripe.com/test_5kQaEZ2Rxb9m1F170UcfK00" target="_blank" class="hero-cta-block">
+      <div class="hcb-badge">75% OFF INTRODUCTORY RATE</div>
+      <div class="hcb-prices"><span class="hcb-was">$2,000</span> <span class="hcb-now">$500</span></div>
+      <div class="hcb-per">4 days &middot; 3 nights &middot; all-inclusive</div>
+      <div class="hcb-btn">Secure Your Spot</div>
+      <div class="hcb-spots">Only 15 spots available</div>
+    </a>
   </div>
 </section>
 
